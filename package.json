@@ -1,0 +1,22 @@
+{
+  "name": "lambda-rainfallwatcher",
+  "version": "0.0.1",
+  "description": "lambda for watching rainfall & logging it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noah0x0/lambda-rainfallWatcher.git"
+  },
+  "author": "mesh1nek0x0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Noah0x0/lambda-rainfallWatcher/issues"
+  },
+  "homepage": "https://github.com/Noah0x0/lambda-rainfallWatcher#readme",
+  "devDependencies": {
+    "node-lambda": "^0.11.3"
+  }
+}
