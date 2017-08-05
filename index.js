@@ -16,8 +16,8 @@ function *processEvent(event, context, callback) {
 
     csv().fromString(data).on('json',(jsonObj)=>{
         // 金沢市のみのデータ取得
-        const kanazawa = 56227;
-        if (jsonObj['観測所番号'] == kanazawa) {
+        const kanazawa = '56227';
+        if (jsonObj['観測所番号'] === kanazawa) {
             putS3(jsonObj);
         }
     });
