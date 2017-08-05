@@ -18,8 +18,7 @@ function *processEvent(event, context, callback) {
     }
 
     const data = yield request(options).then(function (body) {
-        var buf    = new Buffer(body, 'binary');     //バイナリバッファを一時的に作成する
-        return iconv.decode(buf, "SHIFT_JIS"); //作成したバッファを使い、iconv-liteでShift-jisからutf8に変換
+        return iconv.decode(new Buffer(body, 'binary'), "SHIFT_JIS"); //作成したバッファを使い、iconv-liteでShift-jisからutf8に変換
     });
     console.log(data);
     // TODO implement
