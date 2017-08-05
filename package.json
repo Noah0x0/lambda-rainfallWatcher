@@ -20,7 +20,9 @@
     "node-lambda": "^0.11.3"
   },
   "dependencies": {
+    "aws-sdk": "^2.94.0",
     "bluebird": "^3.5.0",
+    "csvtojson": "^1.1.7",
     "iconv-lite": "^0.4.18",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
