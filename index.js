@@ -18,7 +18,15 @@ function *processEvent(event, context, callback) {
         // 金沢市のみのデータ取得
         const kanazawa = '56227';
         if (jsonObj['観測所番号'] === kanazawa) {
-            putS3(jsonObj);
+
+            putS3(jsonObj)
+                .then(() => {
+                    callback(nil, 'success');
+                })
+                .catch((err) => {
+                    console.log(err.stack);
+                    callback(err);
+                });
         }
     });
 };
@@ -46,9 +54,5 @@ function putS3(jsonObj) {
         ContentType: 'application/json'
     };
 
-    s3.putObject(params).promise().then(function (data) {
-        console.log('Success');
-    }).catch(function (err) {
-        console.log(err);
-    });
+    return s3.putObject(params).promise();
 }
