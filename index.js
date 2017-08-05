@@ -12,7 +12,7 @@ module.exports.handler = (event, context, callback) => {
 }
 
 function *processEvent(event, context, callback) {
-    const data = yield requestWaterFall();
+    const data = yield requestRainFall();
 
     csv().fromString(data).on('json',(jsonObj)=>{
         // 金沢市のみのデータ取得
@@ -23,7 +23,7 @@ function *processEvent(event, context, callback) {
     });
 };
 
-function requestWaterFall() {
+function requestRainFall() {
     const url = "http://www.data.jma.go.jp/obd/stats/data/mdrr/pre_rct/alltable/pre1h00_rct.csv";
     const options = {
         url: url,
