@@ -21,7 +21,7 @@ function *processEvent(event, context, callback) {
 
             putS3(jsonObj)
                 .then(() => {
-                    callback(nil, 'success');
+                    callback(null, 'success');
                 })
                 .catch((err) => {
                     console.log(err.stack);
