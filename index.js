@@ -46,8 +46,7 @@ function putS3(jsonObj) {
         ContentType: 'application/json'
     };
 
-    let putObjectPromise = s3.putObject(params).promise();
-    putObjectPromise.then(function (data) {
+    s3.putObject(params).promise().then(function (data) {
         console.log('Success');
     }).catch(function (err) {
         console.log(err);
