@@ -46,7 +46,9 @@ function requestRainFall() {
 
 function putS3(jsonObj) {
     // TODO ファイル名の同意
-    const fileName = 'kanazawa.json';
+    const dt = new Date().getTime();
+    const fileName = `sample_json/kanazawa${dt}.json`;
+
     const params = {
         Bucket: process.env.S3_BUCKET,
         Key: fileName,
