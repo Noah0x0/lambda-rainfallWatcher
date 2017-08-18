@@ -9,7 +9,7 @@ const s3 = new aws.S3({ apiVersion: '2006-03-01' });
 
 module.exports.handler = (event, context, callback) => {
     return promise.coroutine(processEvent)(event, context, callback);
-}
+};
 
 function *processEvent(event, context, callback) {
     const data = yield requestRainFall();
@@ -22,10 +22,12 @@ function *processEvent(event, context, callback) {
             putS3(jsonObj)
                 .then(() => {
                     callback(null, 'success');
+                    return;
                 })
                 .catch((err) => {
                     console.log(err.stack);
                     callback(err);
+                    return;
                 });
         }
     });
