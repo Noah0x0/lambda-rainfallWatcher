@@ -1,21 +1,17 @@
 # lambda-rainfallWatcher
 lambda for watching rainfall &amp; logging it.
 
-## Develop
-```
-$ npm install
-```
-
-### Setup 
+### Setup
 Initializes some files.
 ```
-$ $(npm bin)/node-lambda setup
+$ yarn install
+$ yarn setup
 ```
 
 ### Run Locally
-Testing third party library.
+run locally
 ```
-$ $(npm bin)/node-lambda run
+$ yarn start
 ```
 
 ### Deploy Cloud
@@ -25,16 +21,8 @@ Uploading to Cloud via aws-cli.
     ```
     AWS_ENVIRONMENT=development or production
     AWS_ROLE_ARN=arn:aws:***************
-    AWS_FUNCTION_NAME=RailFallWatcher
     ```
 1. Deploy
     ```
-    $ $(npm bin)/node-lambda deploy 
-    ```
-
-If you want to use env variables.
-1. Add env variables to `deploy.env` file
-1. Deploy Cloud with -f options
-    ```
-    $ $(npm bin)/node-lambda deploy -f deploy.env
+    $ yarn deploy
     ```
