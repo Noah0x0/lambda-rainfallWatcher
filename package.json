@@ -4,6 +4,9 @@
   "description": "lambda for watching rainfall & logging it.",
   "main": "index.js",
   "scripts": {
+    "setup": "node-lambda setup",
+    "start": "node-lambda run",
+    "deploy": "node-lambda deploy -f deploy.env",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
