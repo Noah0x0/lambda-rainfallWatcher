@@ -63,7 +63,11 @@ function putS3(jsonObj) {
     const params = {
         Bucket: process.env.S3_BUCKET,
         Key: `${directory}${fileName}`,
-        Body: JSON.stringify(jsonObj),
+        Body: JSON.stringify({
+            timestamp: mo.format(),
+            rainFall: jsonObj['現在値(mm)'],
+            observation: `${jsonObj['都道府県']}${jsonObj['地点']}`
+        }),
         ContentType: 'application/json'
     };
 
