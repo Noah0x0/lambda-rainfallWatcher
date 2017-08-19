@@ -56,14 +56,18 @@ function putS3(jsonObj) {
 
     const mo = moment(`${year}-${month}-${date}T${hours}:${minutes}:00+09:00`).utc();
 
-    const directory = `rainFall/japan/ishikawa/asano/${mo.year()}/${mo.month() + 1}/${mo.date()}/`;
-    const fileName = `${mo.hours()}:${mo.minutes()}:00.json`;
+    const directory = `rainFall/japan/ishikawa/asano/${mo.format('YYYY')}/${mo.format('MM')}/${mo.format('DD')}/`;
+    const fileName = `${mo.format('hh')}:${mo.format('mm')}:00.json`;
     console.log(`${directory}${fileName}`);
 
     const params = {
         Bucket: process.env.S3_BUCKET,
         Key: `${directory}${fileName}`,
-        Body: JSON.stringify(jsonObj),
+        Body: JSON.stringify({
+            timestamp: mo.format(),
+            rainFall: jsonObj['現在値(mm)'],
+            observation: `${jsonObj['都道府県']}${jsonObj['地点']}`
+        }),
         ContentType: 'application/json'
     };
 
